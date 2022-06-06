@@ -12,22 +12,16 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+    <div class="card-body">
+        <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'id_categories')->textInput() ?>
+        <?= $form->field($model, 'id_categories')->textInput() ?>
 
-    <?= $form->field($model, 'tag')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'created_by')->textInput() ?>
-
-    <?= $form->field($model, 'created_at')->textInput() ?>
-
-    <?= $form->field($model, 'updated_by')->textInput() ?>
-
-    <?= $form->field($model, 'updated_at')->textInput() ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= $form->field($model, 'tag')->textInput(['maxlength' => true]) ?>
+    </div>
+    <div class="card-footer">
+        <?= Html::a('Back', ['index'], ['class' => 'btn btn-outline-danger'])?>
+        <?= Html::submitButton('Save', ['class' => 'btn btn-success float-right']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
