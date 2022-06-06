@@ -37,6 +37,14 @@ AppAsset::register($this);
             ]);
             $menuItems = [
                 ['label' => 'Home', 'url' => ['/site/index']],
+                [
+                    'label' => 'Post',
+                    'url' => ['#'],
+                    'items' => [
+                        ['label' => 'Posting', 'url' => ['/posts/index']],
+                        ['label' => 'Categories', 'url' => ['/categories/index']],
+                    ],
+                ]
             ];
             if (Yii::$app->user->isGuest) {
                 $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
@@ -61,10 +69,16 @@ AppAsset::register($this);
         <div class="content-wrapper">
             <div class="container">
                 <section class="content-header">
-                    <?= Breadcrumbs::widget([
-                        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                    ]) ?>
-                    <?= Alert::widget() ?>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="float-right">
+                                <?= Breadcrumbs::widget([
+                                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                                ]) ?>
+                            </div>
+                            <?= Alert::widget() ?>
+                        </div>
+                    </div>
                 </section>
                 <section class="content">
                     <?= $content ?>
