@@ -12,28 +12,22 @@ $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="categories-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
-
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'categori',
-            'created_at',
-            'updated_at',
-        ],
-    ]) ?>
-
+    <div class="card card-outline card-info">
+        <div class="card-header">
+            <div class="card-title">View</div>
+        </div>
+        <div class="card-body p-0">
+            <?= DetailView::widget([
+                'model' => $model,
+                'attributes' => [
+                    'categori',
+                    'created_at:date',
+                    'updated_at:date',
+                ],
+            ]) ?>
+        </div>
+        <div class="card-footer">
+            <?= Html::a('Back', ['index'], ['class' => 'btn btn-outline-danger'])?>
+        </div>
+    </div>
 </div>
